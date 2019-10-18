@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>946</width>
-    <height>600</height>
+    <height>676</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -27,7 +27,7 @@
      <bool>true</bool>
     </property>
     <property name="frameShape">
-     <enum>QFrame::StyledPanel</enum>
+     <enum>QFrame::WinPanel</enum>
     </property>
     <property name="lineWidth">
      <number>3</number>
@@ -89,8 +89,14 @@
        <bold>true</bold>
       </font>
      </property>
+     <property name="autoFillBackground">
+      <bool>false</bool>
+     </property>
      <property name="text">
       <string>Name</string>
+     </property>
+     <property name="scaledContents">
+      <bool>false</bool>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
@@ -101,9 +107,15 @@
       <rect>
        <x>10</x>
        <y>150</y>
-       <width>81</width>
+       <width>91</width>
        <height>17</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
      </property>
      <property name="text">
       <string>Position:</string>
@@ -113,10 +125,16 @@
      <property name="geometry">
       <rect>
        <x>10</x>
-       <y>190</y>
-       <width>68</width>
+       <y>230</y>
+       <width>81</width>
        <height>17</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
      </property>
      <property name="text">
       <string>Project:</string>
@@ -139,21 +157,24 @@
      <property name="geometry">
       <rect>
        <x>10</x>
-       <y>210</y>
+       <y>250</y>
        <width>331</width>
-       <height>121</height>
+       <height>161</height>
       </rect>
      </property>
      <property name="font">
       <font>
-       <pointsize>9</pointsize>
+       <pointsize>10</pointsize>
+       <weight>50</weight>
+       <italic>false</italic>
+       <bold>false</bold>
       </font>
      </property>
      <property name="text">
       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;--&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
      <property name="alignment">
-      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+      <set>Qt::AlignJustify|Qt::AlignTop</set>
      </property>
     </widget>
     <widget class="QLabel" name="label_confidence">
@@ -161,7 +182,7 @@
       <rect>
        <x>110</x>
        <y>110</y>
-       <width>231</width>
+       <width>71</width>
        <height>20</height>
       </rect>
      </property>
@@ -178,6 +199,12 @@
        <height>17</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
      <property name="text">
       <string>Confidence:</string>
      </property>
@@ -186,7 +213,7 @@
      <property name="geometry">
       <rect>
        <x>110</x>
-       <y>340</y>
+       <y>190</y>
        <width>231</width>
        <height>20</height>
       </rect>
@@ -199,20 +226,58 @@
      <property name="geometry">
       <rect>
        <x>10</x>
-       <y>340</y>
-       <width>81</width>
+       <y>190</y>
+       <width>91</width>
        <height>17</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
      <property name="text">
       <string>Advisor:</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_11">
+     <property name="geometry">
+      <rect>
+       <x>190</x>
+       <y>110</y>
+       <width>71</width>
+       <height>17</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>Gender:</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_gender">
+     <property name="geometry">
+      <rect>
+       <x>270</x>
+       <y>110</y>
+       <width>61</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;--&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
     </widget>
    </widget>
    <widget class="QLabel" name="label_6">
     <property name="geometry">
      <rect>
-      <x>360</x>
+      <x>350</x>
       <y>451</y>
       <width>31</width>
       <height>20</height>
@@ -254,12 +319,12 @@
      <string>running on CPU...</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_7">
+   <widget class="QLabel" name="label_fps">
     <property name="geometry">
      <rect>
-      <x>400</x>
+      <x>380</x>
       <y>451</y>
-      <width>41</width>
+      <width>51</width>
       <height>20</height>
      </rect>
     </property>
@@ -275,13 +340,105 @@
      <string>--/s</string>
     </property>
    </widget>
-   <zorder>label_img</zorder>
-   <zorder>pushButton</zorder>
-   <zorder>frame_user</zorder>
-   <zorder>label_6</zorder>
-   <zorder>label_7</zorder>
-   <zorder>label_8</zorder>
-   <zorder>label_7</zorder>
+   <widget class="QComboBox" name="cbFaceDetector">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>550</y>
+      <width>311</width>
+      <height>27</height>
+     </rect>
+    </property>
+    <item>
+     <property name="text">
+      <string>Select method...</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Cvlib</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>FaceBoxes</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>DSFD_VGG</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>OpenFace dlib</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>OpenFace dlib (one face)</string>
+     </property>
+    </item>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>530</y>
+      <width>111</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Face detector</string>
+    </property>
+   </widget>
+   <widget class="Line" name="line">
+    <property name="geometry">
+     <rect>
+      <x>-3</x>
+      <y>510</y>
+      <width>951</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="cbFaceRecognizer">
+    <property name="geometry">
+     <rect>
+      <x>360</x>
+      <y>550</y>
+      <width>311</width>
+      <height>27</height>
+     </rect>
+    </property>
+    <item>
+     <property name="text">
+      <string>Select method...</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>OpenFace (SVM Linear)</string>
+     </property>
+    </item>
+   </widget>
+   <widget class="QLabel" name="label_4">
+    <property name="geometry">
+     <rect>
+      <x>360</x>
+      <y>530</y>
+      <width>111</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Facial recognizer</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <widget class="QMenuBar" name="menubar">
@@ -326,6 +483,8 @@
     <addaction name="menuDetectors"/>
     <addaction name="menuClassifier"/>
     <addaction name="actionOutliers"/>
+    <addaction name="separator"/>
+    <addaction name="actionBenchmark_2"/>
    </widget>
    <widget class="QMenu" name="menuUser">
     <property name="title">
@@ -419,6 +578,16 @@
   <action name="actionNew_Edit">
    <property name="text">
     <string>New / Edit</string>
+   </property>
+  </action>
+  <action name="actionBenchmark">
+   <property name="text">
+    <string>Benchmark</string>
+   </property>
+  </action>
+  <action name="actionBenchmark_2">
+   <property name="text">
+    <string>Benchmark</string>
    </property>
   </action>
  </widget>
