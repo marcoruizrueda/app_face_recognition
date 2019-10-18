@@ -26,6 +26,8 @@ def main(rgbImage):
     for face,conf in zip(faces,confidences):
         (startX,startY) = face[0],face[1]
         (endX,endY) = face[2],face[3]
+        #startX = startX - 10
+        #endX = endX + 10
         cv2.rectangle(rgbImage, (startX,startY), (endX,endY), (255,255,0), 2)
         bb = dlib.rectangle(startX, startY, endX, endY)
         bbs.append(bb)

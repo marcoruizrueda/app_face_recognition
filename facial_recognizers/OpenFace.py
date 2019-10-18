@@ -12,7 +12,9 @@ modelsDir  = '/home/marco/face_recognizer/openface/models/'
 networkModel = os.path.join(modelsDir, 'openface', 'nn4.small2.v1.t7')
 imgDim = 96
 net = openface.TorchNeuralNet(networkModel, imgDim=imgDim, cuda=False)
-classifierModel = '/home/marco/face_recognizer/openface/training-images/lfw/feature/classifier_marco_linear.pkl'
+#classifierModel = '/home/marco/face_recognizer/openface/training-images/lfw/feature/classifier_marco_linear.pkl'
+classifierModel = '/home/marco/face_recognizer/openface/training-images/lfw/feature/classifier_marco_grid.pkl'
+
 align = openface.AlignDlib(os.path.join(modelsDir, 'dlib', "shape_predictor_68_face_landmarks.dat"))
 
 

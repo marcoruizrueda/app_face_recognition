@@ -422,7 +422,7 @@
     </item>
     <item>
      <property name="text">
-      <string>OpenFace (SVM Linear)</string>
+      <string>OpenFace (SVM)</string>
      </property>
     </item>
    </widget>

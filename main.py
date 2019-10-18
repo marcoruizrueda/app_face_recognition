@@ -89,7 +89,7 @@ class videoThread(QThread):
                 self.recognition_method != 'Select method...' and \
                 self.recognition_method != None:
                 print('No faces to recognize. Select a Face detector...')
-            elif self.recognition_method == 'OpenFace (SVM Linear)':
+            elif self.recognition_method == 'OpenFace (SVM)':
                 rgbImage, self.persons, self.confidences = OpenFace.main(orig_rgbImage, bbs)
                 
             
