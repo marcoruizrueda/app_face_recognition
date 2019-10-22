@@ -7,6 +7,7 @@ sys.path.append('/usr/local/lib/python3.5/dist-packages/')
 import openface
 #import time
 import pickle
+from facial_recognizers import config as cfg
 
 modelsDir  = '/home/marco/face_recognizer/openface/models/'
 networkModel = os.path.join(modelsDir, 'openface', 'nn4.small2.v1.t7')
@@ -67,10 +68,19 @@ def infer(frame, bbs):
             #start = time.time()
             predictions = clf.predict_proba(rep).ravel()
             maxI = np.argmax(predictions)
-            person = le.inverse_transform([maxI])
-            persons.append(person[0].decode("utf-8").replace('_', ' '))
+            
             confidence = predictions[maxI]
             confidences.append(confidence)
+            
+            person = le.inverse_transform([maxI])
+            person = person[0].decode("utf-8").replace('_', ' ')
+            
+            # Check if prediction is greater than tolerance
+            if confidence < cfg._C.FACE_TOLERANCE/2:
+                person = "Unknown"
+            
+            persons.append(person)
+            
             #print("Prediction took {} seconds.".format(time.time() - start))
             #print("Predict {} with {:.2f} confidence.".format(person[0].decode('utf-8'), confidence))
         rgbImage = draw_prediction(rgbImage, bbs, persons, confidences)

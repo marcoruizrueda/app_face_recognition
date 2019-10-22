@@ -11,10 +11,10 @@ from users import utils
 
 
 # Face detectors
-from face_detectors import DSFD_VGG2, cvlibCNN, FaceBoxes, OpenFace_dlib
+from face_detectors import DSFD_VGG2, cvlibCNN, FaceBoxes, OpenFace_dlib, FRLib_detection
 
 # Facial recognizers
-from facial_recognizers import OpenFace
+from facial_recognizers import OpenFace, FRLib_recognition
  
 qtCreatorFile = "main_GUI.ui" # Enter file of PyQT4 UI here.
 cameraSource = 0
@@ -83,6 +83,9 @@ class videoThread(QThread):
             elif self.face_method == 'OpenFace dlib (one face)':
                 OpenFace_dlib.is_one_face = True
                 rgbImage, bbs, index_max = OpenFace_dlib.main(rgbImage)
+            elif self.face_method == 'FRLib':
+                rgbImage, bbs, index_max = FRLib_detection.main(rgbImage)
+                
             
             # Run facial recognition
             if (bbs is None or len(bbs)==0) and \
@@ -91,6 +94,8 @@ class videoThread(QThread):
                 print('No faces to recognize. Select a Face detector...')
             elif self.recognition_method == 'OpenFace (SVM)':
                 rgbImage, self.persons, self.confidences = OpenFace.main(orig_rgbImage, bbs)
+            elif self.recognition_method == 'FRLib':
+                rgbImage, self.persons, self.confidences = FRLib_recognition.main(orig_rgbImage, bbs)
                 
             
             latency = time.time() - start

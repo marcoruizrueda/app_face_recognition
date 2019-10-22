@@ -379,6 +379,11 @@
       <string>OpenFace dlib (one face)</string>
      </property>
     </item>
+    <item>
+     <property name="text">
+      <string>FRLib</string>
+     </property>
+    </item>
    </widget>
    <widget class="QLabel" name="label">
     <property name="geometry">
@@ -423,6 +428,11 @@
     <item>
      <property name="text">
       <string>OpenFace (SVM)</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>FRLib</string>
      </property>
     </item>
    </widget>
